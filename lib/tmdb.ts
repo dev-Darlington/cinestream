@@ -1,4 +1,5 @@
 import { TMDBMovie, TMDBMovieDetails } from "../types/tmdb";
+import { Genre } from "@/types/genre";
 
 const API_BASE = "https://api.themoviedb.org/3";
 
@@ -44,3 +45,33 @@ export async function addToFavorites(id: string): Promise<TMDBMovie[]>{
     )
     return res.json();
 }
+
+/*****************Fetch Movies By Genre */
+
+export async function fetchGenres(): Promise<Genre[]> {
+    const res = await fetch(
+      `${API_BASE}/genre/movie/list?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`
+    );
+  
+    if (!res.ok) {
+      throw new Error("Failed to fetch genres");
+    }
+  
+    const data = await res.json();
+    return data.genres;
+  }
+  
+  export async function fetchMoviesByGenre(
+    genreId: number
+  ): Promise<TMDBMovie[]> {
+    const res = await fetch(
+      `${API_BASE}/discover/movie?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&with_genres=${genreId}`
+    );
+  
+    if (!res.ok) {
+      throw new Error("Failed to fetch genre movies");
+    }
+  
+    const data = await res.json();
+    return data.results;
+  }

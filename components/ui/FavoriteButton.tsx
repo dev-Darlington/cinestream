@@ -28,11 +28,11 @@ export default function FavoriteButton({ movie }: Props) {
             onClick={toggle}
             className={`px-4 py-2 rounded-xl transition font-semibold
 ${favorite
-                    ? "bg-red-500 text-white"
+                    ? "bg-red-400 text-white brightness-90"
                     : "bg-surface text-textPrimary hover:bg-accent"
                 }`}
         >
-            {favorite ? "❤️ Favorited" : "🤍 Add to Favorites"}
+            {favorite ? "Favorited 🎉" : "🤍 Add to Favorites"}
         </button>
     );
 }

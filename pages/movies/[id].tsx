@@ -2,6 +2,7 @@ import { GetServerSideProps } from "next";
 import { fetchMovieDetails } from "../../lib/tmdb";
 import { TMDBMovieDetails } from "../../types/tmdb";
 import Image from "next/image";
+import FavoriteButton from "@/components/ui/FavoriteButton";
 
 
 interface MovieDetailProps {
@@ -44,6 +45,7 @@ export default function MovieDetail({ movie }: MovieDetailProps) {
                     <span>⭐ {movie.vote_average.toFixed(1)}</span>
                     <span>{movie.runtime} min</span>
                     <span>{movie.release_date?.slice(0, 4)}</span>
+                    <FavoriteButton movie={movie}/>
                 </div>
 
 
