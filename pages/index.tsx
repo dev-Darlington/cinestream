@@ -5,7 +5,7 @@ import MovieCard from "@/components/ui/MovieCard";
 import HeroBanner from "../components/section/HeroBanner";
 
 interface HomeProps {
-  hero: TMDBMovie;
+  hero: TMDBMovie | null;
   movies: TMDBMovie[];
 }
 
@@ -13,20 +13,22 @@ interface HomeProps {
 export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
   const movies = await fetchTrending();
 
+  const safeMovies = Array.isArray(movies) ? movies : [];
 
   return {
     props: {
-      hero: movies[0],
-      movies,
+      hero: safeMovies.length > 0 ? safeMovies[0] : null,
+      movies: safeMovies,
     },
   };
 };
 
 
+
 export default function Home({ hero, movies }: HomeProps) {
   return (
     <div className="bg-bg min-h-screen text-textPrimary py-0">
-      <HeroBanner movie={hero} />
+      { hero? <HeroBanner movie={hero} />: null}
       <div className="px-8">
       <h2 className="text-2xl font-semibold mb-4">Trending This Week</h2>
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
