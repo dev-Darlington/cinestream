@@ -8,8 +8,9 @@
   --color-accent: #F59E0B;
   --color-accent-2: #3B82F6;
 
-  --color-text-primary: #F9FAFB;
-  --color-text-secondary: #9CA3AF;
+  /* Text Colors */
+  --color-primary: #F9FAFB;
+  --color-secondary: #9CA3AF;
 
   /*Font Family */
   --font-manrope: Manrope, sans-serif;
@@ -28,8 +29,9 @@
   --color-accent: #FFB400;
   --color-accent-2: #60A5FA;
 
-  --color-text-primary: #FFF5DC;
-  --color-text-secondary: #C8BEA0;
+  /* Text Colors */
+  --color-primary: #FFF5DC;
+  --color-secondary: #C8BEA0;
 }
 
 /* =================================
@@ -42,7 +44,7 @@
   
   body {
     background-color: theme(colors.bg);
-    color: theme(colors.text-primary);
+    color: theme(colors.primary);
     -webkit-font-smoothing: antialiased;
   }
   
@@ -67,7 +69,7 @@
   }
   
   p {
-    color: theme(colors.text-secondary);
+    color: theme(colors.secondary);
     line-height: 1.7;
   }
   
@@ -91,3 +93,17 @@
   ::-webkit-scrollbar-thumb:hover {
     background: theme(colors.accent);
   }
+
+
+  /* @layer utilities {
+    .wrapper {
+      @apply "grid
+      grid-cols-2
+      gap-4
+      sm:grid-cols-3
+      sm:gap-5
+      md:grid-cols-4
+      md:gap-6
+      lg:grid-cols-6"
+    }
+  } */

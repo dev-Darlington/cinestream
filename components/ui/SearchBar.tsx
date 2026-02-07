@@ -29,7 +29,7 @@ export default function SearchBar() {
                 value={query}
                 onChange={handleSearch}
                 placeholder="Search movies..."
-                className="bg-surface px-4 py-2 rounded-lg w-64"
+                className="bg-surface px-4 py-2 rounded-lg w-35 lg:w-64"
             />
 
 

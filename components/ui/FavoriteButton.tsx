@@ -1,3 +1,4 @@
+import {useState, useEffect} from "react"
 import { TMDBMovie } from "@/types/tmdb";
 import { useFavorites } from "@/contexts/favoritesContext";
 
@@ -9,6 +10,8 @@ interface Props {
 
 export default function FavoriteButton({ movie }: Props) {
     const { addFavorite, removeFavorite, isFavorite } = useFavorites();
+
+    const [mounted, setMounted] = useState(false)
 
 
     const favorite = isFavorite(movie.id);
@@ -22,6 +25,11 @@ export default function FavoriteButton({ movie }: Props) {
         }
     }
 
+    useEffect(()=>{
+        setMounted(true)
+    }, [])
+
+    if(!mounted) return null;
 
     return (
         <button

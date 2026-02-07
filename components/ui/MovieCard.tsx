@@ -14,7 +14,7 @@ export default function MovieCard({ movie }: { movie: { id: number; title: strin
                 height={750}
             />
             <div className="absolute bottom-0 w-full p-3 bg-linear-to-t from-black/80">
-                <h3 className="text-sm font-semibold text-textPrimary">
+                <h3 className="mt-2 text-sm text-primary sm:text-base font-semibold truncate">
                     {movie.title}
                 </h3>
                 <span className="text-xs text-accent">

@@ -1,33 +1,41 @@
-import Link from "next/link"
-import { FaPlay } from "react-icons/fa6" 
+import { useState } from "react";
+import { FaPlay, FaBars, FaXmark } from "react-icons/fa6" 
 import SearchBar from "./ui/SearchBar";
 import FavoritesCounter from "@/components/ui/FavoritesCounter";
 import ThemeSwitcher from "@/components/ui/ThemeSwitcher";
+import NavLink from "./ui/NavLink";
+import MobileMenu from "./ui/MobileMenu";
 
 
 
 const Navbar = () => {
+  const [open, setOpen] = useState(false)
+
   return (
-    <div className="sticky top-0 w-full flex text-white justify-between items-center p-4 z-999 bg-bg backdrop-blur border-b border-white/5 font-manrope">
+    <nav className="sticky top-0 w-full text-white z-999 bg-bg backdrop-blur border-b border-white/5 font-manrope">
+      <div className="flex items-center justify-between px-4 py-3 sm:px-6">
         <div className="flex items-center gap-10">
             <div className="flex items-center gap-2 text-amber-400">
                 <FaPlay/>
-                <h2 className="text-2xl font-bold uppercase tracking-wide">cinestream</h2>
+                <h2 className="text-xl lg:text-2xl font-bold uppercase tracking-wide">cinestream</h2>
             </div>
-            <ul className="flex items-center gap-4 text-sm font-medium text-textSecondary group-hover:text-textPrimary">
-                <Link className="px-3 py-2 rounded-xl hover:bg-surface transition group" href="/">Home</Link>
-                <Link className="px-3 py-2 rounded-xl hover:bg-surface transition group" href="/genres">Genre</Link>
-                <Link className="px-3 py-2 rounded-xl hover:bg-surface transition group" href="/trending">Trending</Link>
+            <div className="hidden md:flex items-center gap-1 lg:gap-3 text-sm font-medium text-textSecondary group-hover:text-textPrimary">
+                <NavLink />
                 <FavoritesCounter />
-            </ul>
+            </div>
         </div>
         <div className="flex items-center gap-2">
             <SearchBar />
             <div className="flex items-center gap-2">
               <ThemeSwitcher />
+              <button className="md:hidden hover:bg-surface text-accent cursor-pointer" onClick={()=>setOpen(!open)} aria-label="Toggle menu">
+              {open ? <FaXmark size={20} /> : <FaBars size={20} />}
+              </button>
             </div>
         </div>
-    </div>
+      </div>
+      <MobileMenu open={open} onClose={() => setOpen(false)} />
+    </nav>
   )
 }
 export default Navbar

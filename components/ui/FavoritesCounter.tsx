@@ -1,9 +1,17 @@
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useFavorites } from "@/contexts/favoritesContext";
 
 export default function FavoritesCounter() {
   const { favorites } = useFavorites();
+  const [mounted, setMounted] = useState(false)
 
+  useEffect(()=>{
+    setMounted(true)
+  }, [])
+
+  if(!mounted) return null;
+  
   return (
     <Link
       href="/favorites"
