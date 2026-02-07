@@ -46,6 +46,7 @@
     background-color: theme(colors.bg);
     color: theme(colors.primary);
     -webkit-font-smoothing: antialiased;
+    font-family: Manrope, sans-serif;
   }
   
   ::selection {
@@ -93,17 +94,3 @@
   ::-webkit-scrollbar-thumb:hover {
     background: theme(colors.accent);
   }
-
-
-  /* @layer utilities {
-    .wrapper {
-      @apply "grid
-      grid-cols-2
-      gap-4
-      sm:grid-cols-3
-      sm:gap-5
-      md:grid-cols-4
-      md:gap-6
-      lg:grid-cols-6"
-    }
-  } */

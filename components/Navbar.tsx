@@ -1,3 +1,5 @@
+"use client"
+
 import { useState } from "react";
 import { FaPlay, FaBars, FaXmark } from "react-icons/fa6" 
 import SearchBar from "./ui/SearchBar";
