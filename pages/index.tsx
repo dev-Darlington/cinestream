@@ -11,13 +11,18 @@ interface HomeProps {
 
 
 export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
-  const movies = await fetchTrending();
+  const movies = await fetchTrending().catch((err) => {
+    console.error("TMDB fetch error:", err);
+    return [];
+  });
 
   const safeMovies = Array.isArray(movies) ? movies : [];
 
+  const hero = safeMovies.length > 0 ? safeMovies[0] : null;
+
   return {
     props: {
-      hero: safeMovies.length > 0 ? safeMovies[0] : null,
+      hero,
       movies: safeMovies,
     },
   };
@@ -25,12 +30,15 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
 
 
 
+
 export default function Home({ hero, movies }: HomeProps) {
   return (
     <div className="bg-bg min-h-screen text-textPrimary py-0">
-      { hero? <HeroBanner movie={hero} />: null}
+      { hero && <HeroBanner movie={hero} />}
       <div className="px-8">
       <h2 className="text-2xl font-semibold mb-4">Trending This Week</h2>
+      {movies.length > 0 ? (
+
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
         {movies.map((movie) => (
           <MovieCard
@@ -46,6 +54,11 @@ export default function Home({ hero, movies }: HomeProps) {
           />
         ))}
       </div>
+      ): (
+        <p className="text-textSecondary text-center">
+            No trending content available.
+          </p>
+      )}
       </div>
     </div>
   );

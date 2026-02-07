@@ -12,11 +12,29 @@ interface TMDBListResponse<T> {
 results: T[];
 }
 
+// export async function fetchTrending(): Promise<TMDBMovie[]> {
+// const res = await fetch(`${API_BASE}/trending/movie/week`, { headers });
+// const data: TMDBListResponse<TMDBMovie> = await res.json();
+// return data.results;
+// }
+
 export async function fetchTrending(): Promise<TMDBMovie[]> {
-const res = await fetch(`${API_BASE}/trending/movie/week`, { headers });
-const data: TMDBListResponse<TMDBMovie> = await res.json();
-return data.results;
+  try {
+    const res = await fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`);
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch trending movies");
+    }
+
+    const data = await res.json();
+
+    return Array.isArray(data.results) ? data.results : [];
+  } catch (error) {
+    console.error("fetchTrending error:", error);
+    return [];
+  }
 }
+
 
 export async function fetchMovieDetails(
 id: string
