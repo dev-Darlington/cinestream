@@ -6,7 +6,7 @@ import HeroBanner from "../components/section/HeroBanner";
 
 interface HomeProps {
   hero: TMDBMovie | null;
-  movies: TMDBMovie[];
+  movies: TMDBMovie[] | null;
 }
 
 

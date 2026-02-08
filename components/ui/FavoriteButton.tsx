@@ -4,7 +4,7 @@ import { useFavorites } from "@/contexts/favoritesContext";
 
 
 interface Props {
-    movie: TMDBMovie;
+    movie: TMDBMovie ;
 }
 
 

@@ -97,7 +97,7 @@ export async function fetchGenres(): Promise<Genre[]> {
     genreId: number
   ): Promise<TMDBMovie[]> {
     const res = await fetch(
-      `${API_BASE}/discover/movie?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&with_genres=${genreId}`
+      `${API_BASE}/discover/movie?api_key=${API_KEY}&with_genres=${genreId}`
     );
   
     if (!res.ok) {

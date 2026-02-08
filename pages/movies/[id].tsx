@@ -14,6 +14,11 @@ export const getServerSideProps: GetServerSideProps<MovieDetailProps> = async ({
     const id = params?.id as string;
     const movie = await fetchMovieDetails(id);
 
+    if(!movie){
+        return {
+            notFound: true,
+        }
+    }
 
     return {
         props: {
@@ -37,8 +42,8 @@ export default function MovieDetail({ movie }: MovieDetailProps) {
 
 
             <div className="max-w-5xl mx-auto p-8">
-                <h1 className="text-4xl font-bold mb-2">{movie.title}</h1>
-                <p className="text-textSecondary mb-4">{movie.overview}</p>
+                <h1 className="text-4xl font-bold mb-2">{movie?.title}</h1>
+                <p className="text-textSecondary mb-4">{movie?.overview}</p>
 
 
                 <div className="flex gap-4 mb-8">
