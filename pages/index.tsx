@@ -6,24 +6,17 @@ import HeroBanner from "../components/section/HeroBanner";
 
 interface HomeProps {
   hero: TMDBMovie | null;
-  movies: TMDBMovie[] | null;
+  movies: TMDBMovie[];
 }
 
 
 export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
-  const movies = await fetchTrending().catch((err) => {
-    console.error("TMDB fetch error:", err);
-    return [];
-  });
-
-  const safeMovies = Array.isArray(movies) ? movies : [];
-
-  const hero = safeMovies.length > 0 ? safeMovies[0] : null;
+  const movies = await fetchTrending()
 
   return {
     props: {
-      hero,
-      movies: safeMovies,
+      hero: movies.length > 0 ? movies[0] : null,
+      movies,
     },
   };
 };
