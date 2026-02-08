@@ -2,6 +2,8 @@ import { TMDBMovie, TMDBMovieDetails } from "../types/tmdb";
 import { Genre } from "@/types/genre";
 
 const API_BASE = "https://api.themoviedb.org/3";
+const API_KEY = process.env.TMDB_API_KEY;
+
 
 // interface TMDBListResponse<T> {
 // results: T[];
@@ -15,7 +17,7 @@ const API_BASE = "https://api.themoviedb.org/3";
 
 export async function fetchTrending(): Promise<TMDBMovie[]> {
   try {
-    const res = await fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`);
+    const res = await fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`);
 
     if (!res.ok) {
       throw new Error("Failed to fetch trending movies");
@@ -36,7 +38,7 @@ export async function fetchMovieDetails(
 ): Promise<TMDBMovieDetails | null> {
   try {
     const res = await fetch(
-      `${API_BASE}/movie/${id}?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&append_to_response=credits,videos,similar`
+      `${API_BASE}/movie/${id}?api_key=${API_KEY}&append_to_response=credits,videos,similar`
     );
 
     if (!res.ok) throw new Error("Failed to fetch movie details");
@@ -53,7 +55,7 @@ export async function searchMovies(
 ): Promise<TMDBMovie[]> {
   try {
     const res = await fetch(
-      `${API_BASE}/search/movie?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&query=${encodeURIComponent(query)}`
+      `${API_BASE}/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(query)}`
     );
 
     if (!res.ok) throw new Error("Search failed");
@@ -78,7 +80,7 @@ export async function searchMovies(
 export async function fetchGenres(): Promise<Genre[]> {
   try {
     const res = await fetch(
-      `${API_BASE}/genre/movie/list?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`
+      `${API_BASE}/genre/movie/list?api_key=${API_KEY}`
     );
 
     if (!res.ok) throw new Error("Failed to fetch genres");
