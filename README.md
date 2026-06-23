@@ -11,38 +11,17 @@ It focuses on performance, clean UI, and delightful micro-interactions — deliv
 
 # ✨ Features
 
-- 🖥️ Immersive Theater Video Player
-Custom HTML5 controls supporting play/pause, seeking timeline, volume slider, playback speeds (0.5x to 2x), resolution selector (1080p, 720p, 480p) with buffering transitions, synced subtitle tracks, fullscreen, and hotkey controls.
-
-- 📥 Offline Download Manager
-Sleek floating side-drawer managing active background downloads (progress bars, speed MB/s, ETA, pause/cancel options) and completed downloads, stored locally for persistent offline viewing.
-
-- 🔌 Offline Mode Simulator
-A togglable system testing completely offline operations. When active, it displays warning headers and blocks catalog requests with a custom offline prompt, while allowing users to play downloads offline.
-
-- 🎨 Premium Brand Identity
-A new "Midnight Steel & Neon Turquoise" aesthetic featuring Google Fonts Outfit (headings) and Plus Jakarta Sans (body), a custom glowing SVG logo icon, and animated heart-pop favorite toggles.
-
-- 🔍 Modern Search Bar
-A search bar featuring glassmorphic designs, keyboard shortcuts (Ctrl+K and /), clear/loading icons, arrow keys keyboard navigation, click-outside closures, and rich result dropdown with poster thumbnails and metadata ratings.
-
-- 🎥 Trending Movies Dashboard
-Discover what’s trending this week with a visually rich, responsive grid.
-
-- 🌟 Hero Banner
-A featured movie section with cinematic styling and direct watch streaming links.
-
-- ❤️ Favorites System
-Save and manage favorite movies using local storage (no auth required) with modern heart icons.
-
-- 🧭 Genre Browsing
-Explore movies by genre with dynamic TMDB-powered filtering.
-
-- ⚡ Server-Side Rendering (SSR)
-Fast initial load and SEO-friendly pages using Next.js Pages Router.
-
-- 📱 Fully Responsive
-Optimized for mobile, tablet, and desktop screens.
+- 🖥️ **Immersive Theater Video Player**: Custom HTML5 controls supporting play/pause, seeking timeline, volume slider, playback speeds (0.5x to 2x), resolution selector (1080p, 720p, 480p) with buffering transitions, synced subtitle tracks, fullscreen, and hotkey controls.
+- 📥 **Offline Download Manager**: Sleek floating side-drawer managing active background downloads (progress bars, speed MB/s, ETA, pause/cancel options) and completed downloads, stored locally for persistent offline viewing.
+- 🔌 **Offline Mode Simulator**: A togglable system testing completely offline operations. When active, it displays warning headers and blocks catalog requests with a custom offline prompt, while allowing users to play downloads offline.
+- 🎨 **Premium Brand Identity**: A new "Midnight Steel & Neon Turquoise" aesthetic featuring Google Fonts Outfit (headings) and Plus Jakarta Sans (body), a custom glowing SVG logo icon, and animated heart-pop favorite toggles.
+- 🔍 **Modern Search Bar**: A search bar featuring glassmorphic designs, keyboard shortcuts (Ctrl+K and /), clear/loading icons, arrow keys keyboard navigation, click-outside closures, and rich result dropdown with poster thumbnails and metadata ratings.
+- 🎥 **Trending Movies Dashboard**: Discover what’s trending this week with a visually rich, responsive grid.
+- 🌟 **Hero Banner**: A featured movie section with cinematic styling and direct watch streaming links.
+- ❤️ **Favorites System**: Save and manage favorite movies using local storage (no auth required) with modern heart icons.
+- 🧭 **Genre Browsing**: Explore movies by genre with dynamic TMDB-powered filtering.
+- ⚡ **Server-Side Rendering (SSR)**: Fast initial load and SEO-friendly pages using Next.js Pages Router.
+- 📱 **Fully Responsive**: Optimized for mobile, tablet, and desktop screens.
 
 # 🛠 Tech Stack
 
