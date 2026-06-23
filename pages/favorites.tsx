@@ -23,7 +23,7 @@ export default function FavoritesPage() {
                         key={movie.id}
                         className="bg-surface rounded-xl overflow-hidden hover:scale-105 transition"
                     >
-                        <Link href={`/movie/${movie.id}`}>
+                        <Link href={`/movies/${movie.id}`}>
                             <Image
                                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                                 alt={movie.title}
