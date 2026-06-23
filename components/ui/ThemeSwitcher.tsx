@@ -33,16 +33,11 @@ export default function ThemeSwitcher() {
   return (
     <button
       onClick={toggleTheme}
-      className="flex items-center gap-2 px-3 py-2 rounded-xl
-                 bg-surface hover:bg-surface/80 transition"
+      className="w-10 h-10 rounded-full bg-surface hover:bg-white/10 hover:border-accent/30 border border-white/5 flex items-center justify-center transition-all duration-300 hover:scale-105 cursor-pointer text-lg text-white"
       aria-label="Toggle cinema mode"
+      title={theme === "cinema" ? "Switch to Default Mode" : "Switch to Cinema Mode"}
     >
-      <span className="text-lg">
-        {theme === "cinema" ? "🎬" : "🌙"}
-      </span>
-      <span className="text-sm text-textSecondary hidden md:block">
-        {theme === "cinema" ? "Cinema" : "Default"}
-      </span>
+      {theme === "cinema" ? "🎬" : "🌙"}
     </button>
   );
 }

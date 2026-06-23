@@ -14,7 +14,7 @@ export default function MobileMenu({
           md:hidden
           overflow-hidden
           transition-all duration-300
-          ${open ? "max-h-24 opacity-100" : "max-h-0 opacity-0"}
+          ${open ? "max-h-48 opacity-100" : "max-h-0 opacity-0"}
         `}
       >
         <div

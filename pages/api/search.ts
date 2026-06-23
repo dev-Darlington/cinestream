@@ -9,6 +9,8 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<TMDBListResponse<TMDBMovie>>
 ) {
+  res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate")
+
   const query = req.query.q as string;
 
   if (!query) {
@@ -24,6 +26,7 @@ export default async function handler(
         Authorization: `Bearer ${process.env.TMDB_READ_TOKEN}`,
         "Content-Type": "application/json",
       },
+      cache: "no-store"
     }
   );
 
